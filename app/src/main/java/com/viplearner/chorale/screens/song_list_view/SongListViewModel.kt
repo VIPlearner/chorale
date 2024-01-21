@@ -20,14 +20,14 @@ class SongListViewModel: ViewModel() {
         _viewState.value = SongListViewState.Loading
         //load Song List
         val songList = listOf(
-            Song("Hallelujah Chorus", "2nd March, 2024", "Soprano, Alto, Tenor, Bass"),
-            Song("Hallelujah Chorus", "2nd March, 2024", "Soprano, Alto, Tenor, Bass"),
-            Song("Hallelujah Chorus", "2nd March, 2024", "Soprano, Alto, Tenor, Bass"),
-            Song("Hallelujah Chorus", "2nd March, 2024", "Soprano, Alto, Tenor, Bass"),
-            Song("Hallelujah Chorus", "2nd March, 2024", "Soprano, Alto, Tenor, Bass"),
-            Song("Hallelujah Chorus", "2nd March, 2024", "Soprano, Alto, Tenor, Bass"),
-            Song("Hallelujah Chorus", "2nd March, 2024", "Soprano, Alto, Tenor, Bass"),
-            Song("Hallelujah Chorus", "2nd March, 2024", "Soprano, Alto, Tenor, Bass"),
+            Song("2","Hallelujah Chorus", "2nd March, 2024", "Soprano, Alto, Tenor, Bass"),
+            Song("2","Hallelujah Chorus", "2nd March, 2024", "Soprano, Alto, Tenor, Bass"),
+            Song("2","Hallelujah Chorus", "2nd March, 2024", "Soprano, Alto, Tenor, Bass"),
+            Song("2","Hallelujah Chorus", "2nd March, 2024", "Soprano, Alto, Tenor, Bass"),
+            Song("2","Hallelujah Chorus", "2nd March, 2024", "Soprano, Alto, Tenor, Bass"),
+            Song("2","Hallelujah Chorus", "2nd March, 2024", "Soprano, Alto, Tenor, Bass"),
+            Song("2","Hallelujah Chorus", "2nd March, 2024", "Soprano, Alto, Tenor, Bass"),
+            Song("2","Hallelujah Chorus", "2nd March, 2024", "Soprano, Alto, Tenor, Bass"),
         )
         _viewState.value = SongListViewState.Success(songList)
     }

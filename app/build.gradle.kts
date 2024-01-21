@@ -50,6 +50,9 @@ android {
             excludes += "META-INF/gradle/incremental.annotation.processors"
         }
     }
+    configurations.all {
+        exclude(group = "com.intellij", module = "annotations")
+    }
 }
 
 dependencies {

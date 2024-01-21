@@ -7,8 +7,12 @@ object SongListNavigation {
     const val route = "songList"
 }
 
-fun NavGraphBuilder.songListView(){
+fun NavGraphBuilder.songListView(
+    onNavigateToSong: (String) -> Unit
+){
     composable(SongListNavigation.route) {
-        SongListView()
+        SongListView(
+            onNavigateToSong = onNavigateToSong
+        )
     }
 }

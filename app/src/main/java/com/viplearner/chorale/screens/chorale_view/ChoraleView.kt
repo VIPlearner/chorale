@@ -136,10 +136,10 @@ fun ChoraleContent(
         bottomBar = {
             BottomBar(
                 modifier = Modifier.fillMaxWidth(),
-                onFolderClick = { /* Handle folder click */ },
-                onHomeClick = { /* Handle home click */ },
-                onPadlockClick = { /* Handle padlock click */ },
-                onBreakfastClicked = { /* Handle breakfast click */ }
+                onFolderClick = onFolderClick,
+                onHomeClick = onHomeClick,
+                onPadlockClick = onPadlockClick,
+                onBreakfastClicked = onBreakfastClicked
             )
         }
     ){

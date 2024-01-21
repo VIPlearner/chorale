@@ -39,6 +39,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun SongListView(
+    onNavigateToSong: (String) -> Unit,
     viewModel: SongListViewModel = hiltViewModel()
 ){
     val viewState by viewModel.viewState.collectAsState()
@@ -53,7 +54,10 @@ fun SongListView(
             ErrorDialog(errorMessage = (viewState as SongListViewModel.SongListViewState.Error).message)
         }
         is SongListViewModel.SongListViewState.Success -> {
-            SongListContent(songList = (viewState as SongListViewModel.SongListViewState.Success).songList)
+            SongListContent(
+                songList = (viewState as SongListViewModel.SongListViewState.Success).songList,
+                onNavigateToSong = onNavigateToSong
+            )
         }
     }
 }
@@ -61,7 +65,8 @@ fun SongListView(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SongListContent(
-    songList: List<Song>
+    songList: List<Song>,
+    onNavigateToSong: (String) -> Unit
 ){
     Scaffold(
         containerColor = Color.Black,
@@ -102,7 +107,13 @@ fun SongListContent(
             .padding(it)
             .padding(horizontal = 20.dp)) {
             items(songList){song ->
-                SongListItem(modifier = Modifier.padding(vertical = 15.dp), song = song, onClick = {})
+                SongListItem(
+                    modifier = Modifier.padding(vertical = 15.dp), song = song, onClick = {
+                        onNavigateToSong(
+                            song.id
+                        )
+                    }
+                )
                 Divider(color = Color.Gray.copy(alpha = 0.5f))
             }
         }
@@ -173,30 +184,32 @@ fun SongListItem(
 @Composable
 fun SongListPreview(){
     SongListContent(songList = listOf(
-        Song("Song 1", "2021-10-10", "Soprano"),
-        Song("Song 2", "2021-10-10", "Soprano"),
-        Song("Song 3", "2021-10-10", "Soprano"),
-        Song("Song 4", "2021-10-10", "Soprano"),
-        Song("Song 5", "2021-10-10", "Soprano"),
-        Song("Song 6", "2021-10-10", "Soprano"),
-        Song("Song 7", "2021-10-10", "Soprano"),
-        Song("Song 8", "2021-10-10", "Soprano"),
-        Song("Song 9", "2021-10-10", "Soprano"),
-        Song("Song 10", "2021-10-10", "Soprano"),
-        Song("Song 11", "2021-10-10", "Soprano"),
-        Song("Song 12", "2021-10-10", "Soprano"),
-        Song("Song 13", "2021-10-10", "Soprano"),
-        Song("Song 14", "2021-10-10", "Soprano"),
-        Song("Song 15", "2021-10-10", "Soprano"),
-        Song("Song 16", "2021-10-10", "Soprano"),
-        Song("Song 17", "2021-10-10", "Soprano"),
-        Song("Song 18", "2021-10-10", "Soprano"),
-        Song("Song 19", "2021-10-10", "Soprano"),
-        Song("Song 20", "2021-10-10", "Soprano"),
-        Song("Song 21", "2021-10-10", "Soprano"),
-        Song("Song 22", "2021-10-10", "Soprano"),
-        Song("Song 23", "2021-10-10", "Soprano"),
-        Song("Song 24", "2021-10-10", "Soprano"),
-        Song("Song 25", "2021-10-10", "Soprano")
-    ))
+        Song("1","Song 1", "2021-10-10", "Soprano"),
+        Song("2","Song 2", "2021-10-10", "Soprano"),
+        Song("2","Song 3", "2021-10-10", "Soprano"),
+        Song("2","Song 4", "2021-10-10", "Soprano"),
+        Song("2","Song 5", "2021-10-10", "Soprano"),
+        Song("2","Song 6", "2021-10-10", "Soprano"),
+        Song("2","Song 7", "2021-10-10", "Soprano"),
+        Song("2","Song 8", "2021-10-10", "Soprano"),
+        Song("2","Song 9", "2021-10-10", "Soprano"),
+        Song("2","Song 10", "2021-10-10", "Soprano"),
+        Song("2","Song 11", "2021-10-10", "Soprano"),
+        Song("2","Song 12", "2021-10-10", "Soprano"),
+        Song("2","Song 13", "2021-10-10", "Soprano"),
+        Song("2","Song 14", "2021-10-10", "Soprano"),
+        Song("2","Song 15", "2021-10-10", "Soprano"),
+        Song("2","Song 16", "2021-10-10", "Soprano"),
+        Song("2","Song 17", "2021-10-10", "Soprano"),
+        Song("2","Song 18", "2021-10-10", "Soprano"),
+        Song("2","Song 19", "2021-10-10", "Soprano"),
+        Song("2","Song 20", "2021-10-10", "Soprano"),
+        Song("2","Song 21", "2021-10-10", "Soprano"),
+        Song("2","Song 22", "2021-10-10", "Soprano"),
+        Song("2","Song 23", "2021-10-10", "Soprano"),
+        Song("2","Song 24", "2021-10-10", "Soprano"),
+        Song("2","Song 25", "2021-10-10", "Soprano")
+    ),
+        onNavigateToSong = {}
+    )
 }
