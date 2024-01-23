@@ -59,7 +59,6 @@ import com.viplearner.chorale.R
 import com.viplearner.chorale.components.ProgressDialog
 import com.viplearner.chorale.model.SongDetails
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ChoraleView(
     factory: ChoraleViewModel.Factory,
